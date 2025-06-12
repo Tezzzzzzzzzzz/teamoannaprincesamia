@@ -22,3 +22,14 @@ document.getElementById('boton-secreto').addEventListener('click', () => {
   });
   document.getElementById('razones').classList.add('mostrar');
 });
+
+function ampliar(img) {
+  const popup = document.getElementById("popup");
+  const popupImg = document.getElementById("popup-img");
+  popupImg.src = img.src;
+  popup.style.display = "flex";
+}
+
+function cerrarPopup() {
+  document.getElementById("popup").style.display = "none";
+}
