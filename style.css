@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
 body {
   background-color: #fff0f5;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Poppins', sans-serif;
   text-align: center;
   padding: 20px;
 }
@@ -15,6 +17,7 @@ body {
 
 .carta h1 {
   color: #e91e63;
+  animation: palpitar 1.5s infinite;
 }
 
 .carta img {
@@ -27,14 +30,17 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 15px;
+  gap: 25px;
   margin-top: 30px;
 }
 
 .galeria img {
   width: 150px;
-  border-radius: 10px;
-  transition: transform 0.3s;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .galeria img:hover {
@@ -42,14 +48,42 @@ body {
 }
 
 #boton-secreto {
+  position: relative;
   margin-top: 30px;
-  padding: 10px 20px;
+  padding: 12px 25px;
   background: #e91e63;
   color: white;
   border: none;
-  border-radius: 10px;
+  border-radius: 12px;
   font-size: 18px;
   cursor: pointer;
+  overflow: hidden;
+  z-index: 1;
+  font-family: 'Poppins', sans-serif;
+}
+
+#boton-secreto::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: conic-gradient(#ff69b4, #ff1493, #ff69b4);
+  z-index: -1;
+  animation: girar 3s linear infinite;
+  border-radius: 14px;
+  padding: 2px;
+  mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+}
+
+@keyframes girar {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 #razones {
@@ -70,11 +104,7 @@ ul li {
   margin: 5px 0;
 }
 
-.titulo-animado {
-  animation: palpitar 1.5s infinite;
-  color: #e91e63;
-}
-
+/* Animación título */
 @keyframes palpitar {
   0%, 100% {
     transform: scale(1);
@@ -84,25 +114,7 @@ ul li {
   }
 }
 
-.boton-animado {
-  animation: latido 2s infinite;
-}
-
-@keyframes latido {
-  0%, 100% {
-    transform: scale(1);
-  }
-  25% {
-    transform: scale(1.1);
-  }
-  50% {
-    transform: scale(0.95);
-  }
-  75% {
-    transform: scale(1.05);
-  }
-}
-
+/* Popup para imágenes */
 .popup {
   display: none;
   position: fixed;
