@@ -1,36 +1,33 @@
 const razones = [
-  "Tu sonrisa ilumina mi día.",
-  "Amo tus abraços.",
-  "Me faz sentir amado.",
-  "Você é divertida e doce.",
-  "Você é minha melhor amiga.",
+  "Tu sorriso ilumina meu dia.",
+  "Amo teus abraços.",
+  "Você me faz sentir amado.",
+  "É divertida e doce.",
+  "É minha melhor amiga.",
   "Com você tudo é melhor.",
   "Você me faz rir como ninguém.",
-  "Você é linda por dentro e por fora.",
+  "É linda por dentro e por fora.",
   "Sempre me apoia.",
-  "Você me inspira a ser melhor.",
-  // Puedes agregar más razones aquí
+  "Me inspira a ser melhor.",
+  // Adicione mais razões se quiser
 ];
-
-let abierto = false;
 
 document.getElementById('boton-secreto').addEventListener('click', () => {
   const lista = document.getElementById('lista-razones');
-  const divRazones = document.getElementById('razones');
-
-  if (!abierto) {
+  const contenedor = document.getElementById('razones');
+  
+  if (contenedor.classList.contains('mostrar')) {
+    contenedor.classList.remove('mostrar');
+    lista.innerHTML = '';
+  } else {
     lista.innerHTML = "";
     razones.forEach(r => {
       const li = document.createElement('li');
       li.textContent = r;
       lista.appendChild(li);
     });
-    divRazones.classList.add('mostrar');
-  } else {
-    divRazones.classList.remove('mostrar');
+    contenedor.classList.add('mostrar');
   }
-
-  abierto = !abierto;
 });
 
 function ampliar(img) {
