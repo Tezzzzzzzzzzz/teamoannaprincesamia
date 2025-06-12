@@ -1,24 +1,23 @@
 const razones = [
-  "Tu sonrisa ilumina mi día.",
-  "Amo tus abrazos.",
-  "Me haces sentir amado.",
-  "Eres divertida y dulce.",
-  "Eres mi mejor amiga.",
-  "Contigo todo es mejor.",
-  "Me haces reír como nadie.",
-  "Eres hermosa por dentro y por fuera.",
-  "Siempre me apoyas.",
-  "Me inspiras a ser mejor.",
-  // ... agrega más hasta llegar a 100
+  "Tu sonrisa ilumina mi dia.",
+  "Amo tus abraços.",
+  "Você me faz sentir amado.",
+  "É divertida e doce.",
+  "É minha melhor amiga.",
+  "Com você tudo é melhor.",
+  "Você me faz rir como ninguém.",
+  "Você é linda por dentro e por fora.",
+  "Você sempre me apoia.",
+  "Você me inspira a ser melhor.",
+  // Agrega más razones si quieres
 ];
 
 document.getElementById('boton-secreto').addEventListener('click', () => {
+  const razonesDiv = document.getElementById('razones');
   const lista = document.getElementById('lista-razones');
-  const contenedor = document.getElementById('razones');
-  const estaVisible = contenedor.classList.contains('mostrar');
 
-  if (estaVisible) {
-    contenedor.classList.remove('mostrar');
+  if (razonesDiv.classList.contains('mostrar')) {
+    razonesDiv.classList.remove('mostrar');
     lista.innerHTML = "";
   } else {
     lista.innerHTML = "";
@@ -27,11 +26,10 @@ document.getElementById('boton-secreto').addEventListener('click', () => {
       li.textContent = r;
       lista.appendChild(li);
     });
-    contenedor.classList.add('mostrar');
+    razonesDiv.classList.add('mostrar');
   }
 });
 
-// Función para ampliar imágenes
 function ampliar(img) {
   const popup = document.getElementById("popup");
   const popupImg = document.getElementById("popup-img");
@@ -39,7 +37,6 @@ function ampliar(img) {
   popup.style.display = "flex";
 }
 
-// Función para cerrar el popup
 function cerrarPopup() {
   document.getElementById("popup").style.display = "none";
 }
