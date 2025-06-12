@@ -22,7 +22,6 @@ document.getElementById('boton-secreto').addEventListener('click', () => {
   });
   document.getElementById('razones').classList.add('mostrar');
 });
-
 function ampliar(img) {
   const popup = document.getElementById("popup");
   const popupImg = document.getElementById("popup-img");
